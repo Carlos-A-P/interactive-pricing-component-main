@@ -1,0 +1,436 @@
+:root {
+	--Soft-Cyan/*(Full Slider Bar)*/: hsl(174, 77%, 80%);
+	--Strong-Cyan/*(Slider Backround)*/: hsl(174, 86%, 45%);
+	--Light-Grayish-Red/*(Discount Background)*/: hsl(14, 92%, 95%);
+	--Light-Red/*(Discount Text)*/: hsl(15, 100%, 70%);
+	--Pale-Blue/*(CTA Text)*/: hsl(226, 100%, 87%);
+
+	--White/*(Pricing Component Background)*/: hsl (0, 0%, 100%);
+	--Very-Pale-Blue/*(Main Background)*/: hsl(230, 100%, 99%);
+	--Light-Grayish-Blue/*(Empty Slider Bar)*/: hsl(224, 65%, 95%);
+	--Light-Grayish-Blue/*(Toggle Background)*/: hsl(223, 50%, 87%);
+	--Grayish-Blue/*(Text)*/: hsl(225, 20%, 60%);
+	--Dark-Desaturated-Blue/*(Text & CTA Background)*/: hsl(227, 35%, 25%);
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Manrope", sans-serif;
+	padding: 4rem 1.5rem 0;
+	background-color: var(--Very-Pale-Blue);
+	background-image: url(../images/bg-pattern.svg);
+	background-repeat: no-repeat;
+	background-position: top -46px left 0;
+}
+
+header {
+	margin: 0 auto;
+	padding: 2rem 0;
+	text-align: center;
+	margin-bottom: 1.5rem;
+	background-image: url(../images/pattern-circles.svg);
+	background-repeat: no-repeat;
+	background-position: top 0 left 50%;
+	height: 150px;
+}
+
+h1 {
+	font-size: 1.4rem;
+}
+
+header p {
+	font-size: 13px;
+	color: var(--Grayish-Blue);
+}
+
+.wrapper {
+	position: relative;
+	background-color: white;
+	border-radius: 8px;
+	padding: 1.5rem 1rem;
+	box-shadow: 0 7px 8px rgb(0, 0, 0, 0.13);
+	max-width: 330px;
+	margin: 0 auto;
+}
+
+h2 {
+	text-align: center;
+	font-size: 14px;
+	color: var(--Grayish-Blue);
+	margin-bottom: 1rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+.yearly::after {
+	content: "-25%";
+	font-size: 12px;
+	color: var(--Light-Red);
+	background-color: hsl(15, 100%, 70%, 0.2);
+	padding: 2px 10px;
+	border-radius: 50px;
+	margin-left: 10px;
+}
+
+.pageviews {
+	margin-bottom: 2.5rem;
+}
+
+footer {
+	margin-top: 6rem;
+}
+
+.billing-switch {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	color: var(--Grayish-Blue);
+	margin-right: -26px;
+	font-size: 13px;
+}
+
+.monthly {
+	height: 23px;
+}
+
+.right-billing {
+	display: flex;
+	gap: 7px;
+	height: 23px;
+}
+
+.discount {
+	font-size: 12px;
+	color: var(--Light-Red);
+	background-color: hsl(15, 100%, 70%, 0.2);
+	padding: 2px 10px;
+	border-radius: 50px;
+}
+
+/* remove default slider */
+.slider {
+	width: 100%;
+	-webkit-appearance: none;
+	height: 7px;
+	outline: none;
+	border-radius: 3px;
+}
+
+/* remove default selector */
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 48px;
+	height: 48px;
+	cursor: pointer;
+	z-index: 3;
+	position: relative;
+}
+
+.input-wrapper {
+	position: relative;
+	margin-bottom: 2rem;
+}
+
+.selector {
+	height: 10px;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	border-radius: 50px;
+	/* default for a selector is 50% in input */
+	left: 50%;
+	transform: translate(-50%);
+	background-color: var(--Light-Grayish-Blue);
+}
+
+.selectBtn {
+	height: 48px;
+	width: 48px;
+	background: var(--Strong-Cyan);
+	border-radius: 50%;
+	position: absolute;
+	bottom: -20px;
+	left: 43%;
+	background-image: url(../images/icon-slider.svg);
+	background-repeat: no-repeat;
+	background-position: top 16px left 10px;
+	background-size: 27px;
+	box-shadow: 0 13px 28px rgb(22 216 197 / 70%);
+	z-index: 3;
+}
+
+.progressBar {
+	width: 50%;
+	height: 10px;
+	background-color: var(--Soft-Cyan);
+	border-radius: 50px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+span {
+	font-weight: 700;
+	font-size: 2.3rem;
+	color: black;
+}
+
+.perMonth {
+	color: var(--Grayish-Blue);
+	display: flex;
+	align-items: center;
+	gap: 13px;
+	justify-content: center;
+	margin-bottom: 2rem;
+}
+
+/* slider */
+/* Hide default HTML checkbox */
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+/* The switch - the box around the slider */
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 50px;
+	height: 23px;
+}
+
+/* The slider */
+.toggle {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: hsl(225, 20%, 60%, 0.3);
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.switch:hover .toggle {
+	opacity: 0.7;
+	background: hsl(174, 86%, 45%);
+}
+
+/* size for slider */
+.toggle:before {
+	position: absolute;
+	content: "";
+	height: 16px;
+	width: 16px;
+	left: 6px;
+	bottom: 4px;
+	background-color: white;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+/* input:checked + .slider {
+	background-color: #2196f3;
+} */
+
+input:checked + .toggle:before {
+	-webkit-transform: translateX(22px);
+	-ms-transform: translateX(22px);
+	transform: translateX(22px);
+}
+
+/* Rounded slider */
+.toggle.round {
+	border-radius: 34px;
+}
+
+.toggle.round:before {
+	border-radius: 50%;
+}
+
+input[type="checkbox"]:focus + .toggle {
+	outline: none;
+	/* box-shadow: 0 0 0 4px rgba(53, 64, 66, 0.4); */
+}
+
+.top {
+	padding-bottom: 2rem;
+	margin-bottom: 1rem;
+	/* border-bottom: 1px solid hsl(223, 50%, 87%); */
+}
+
+/* .top::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 8rem;
+	background: hsl(223, 50%, 87%, 0.4);
+	height: 1px;
+	width: 100%;
+} */
+
+.bottom::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 12.3rem;
+	background: hsl(223, 50%, 87%, 0.4);
+	height: 1px;
+	width: 100%;
+}
+
+.benefits p {
+	text-align: center;
+	font-size: 13px;
+	padding-bottom: 9px;
+	color: var(--Grayish-Blue);
+	margin-left: 0;
+}
+
+.benefits p::before {
+	content: url(../images/icon-check.svg);
+	width: 20px;
+	padding-right: 17px;
+}
+
+.button {
+	display: flex;
+	justify-content: center;
+	margin: 1.5rem 0 0.5rem;
+}
+
+.button a {
+	font-size: 13px;
+	text-decoration: none;
+	color: var(--Pale-Blue);
+
+	background-color: var(--Dark-Desaturated-Blue);
+	padding: 0.7rem 2.7rem;
+	border-radius: 50px;
+}
+
+.button a:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.attribution {
+	font-size: 11px;
+	text-align: center;
+}
+.attribution a {
+	color: hsl(228, 45%, 44%);
+}
+
+@media (min-width: 1100px) {
+	body {
+		height: 100vh;
+	}
+
+	header {
+		width: 500px;
+	}
+
+	h1 {
+		font-size: 1.8rem;
+		margin-bottom: 0.8rem;
+	}
+
+	.yearly::after {
+		content: "-25% discount";
+	}
+
+	.wrapper {
+		padding: 3rem 3rem;
+		max-width: 580px;
+	}
+
+	.top {
+		display: grid;
+		grid-template-areas:
+			"pageviews billing"
+			"input-wrapper input-wrapper"
+			"billing-switch billing-switch";
+	}
+
+	.pageviews {
+		grid-area: pageviews;
+		margin-bottom: 0;
+		margin-top: 14px;
+	}
+
+	h2 {
+		text-align: left;
+		font-size: 15px;
+	}
+
+	.billing {
+		grid-area: billing;
+		text-align: right;
+	}
+
+	.perMonth {
+		align-items: center;
+		gap: 8px;
+		justify-content: flex-end;
+	}
+
+	.input-wrapper {
+		margin-top: 0.2rem;
+		margin-bottom: 3rem;
+		grid-area: input-wrapper;
+	}
+
+	.billing-switch {
+		grid-area: billing-switch;
+		gap: 13px;
+		margin-right: -77px;
+	}
+
+	.bottom {
+		margin-top: 2rem;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.benefits p {
+		text-align: left;
+		font-size: 13px;
+		padding-bottom: 0px;
+		margin-bottom: 10px;
+	}
+
+	.button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0;
+	}
+
+	.bottom::before {
+		bottom: 10rem;
+	}
+
+	footer {
+		margin-top: 12rem;
+	}
+}
+
+@media (min-width: 1441px) {
+	body {
+		background-size: cover;
+		background-position: top -34rem left -5rem;
+	}
+}
