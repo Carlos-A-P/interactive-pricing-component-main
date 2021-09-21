@@ -41,18 +41,15 @@ Users should be able to:
 
 This challenged taught me some new ways to use the ::before and ::after pseudo classes and how to implement the equivalent of media queries in javascript.
 
-Here is some code that I wrote in order to complete this task
+Here is some code that I wrote in order to complete this task:
+
+- In the function below, I am passing through a variable which is the screen width. I did that so that i can adjust the speed of how fast the slider moves depending on the position of the slider. I set the slider length equal to 100 and divided it into 5 sections, each section changes the HTML of the price div
 
 ```Javascript
 function myFunction(x) {
     if (x.matches) { // If media query matches
         slider.oninput = function(){
             selectBtn.style.left = this.value-4 + '%'
-            // if (this.value < 95){
-            //     selectBtn.style.left = this.value + '%'
-            // }else{
-            //     selectBtn.style.left = 89 + '%'
-            // }
             if (this.value <= 20){
                 pageViews.innerHTML = "<h2>10K PAGEVIEWS</h2>"
                 perMonth.innerHTML = "<span>$8.00</span> / month"
@@ -109,8 +106,9 @@ function myFunction(x) {
   x.addEventListener('change', myFunction) // Attach listener function on state changes
 ```
 
+- Is used the ::after pseudo class to insert text, add decorations and change my slider
+
 ```CSS
-/* is used the ::after psudo class to insert text, add decorations and change my slider */
 .yearly::after {
 	content: "-25%";
 	font-size: 12px;
