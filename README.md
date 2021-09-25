@@ -1,6 +1,6 @@
 # Interactive Pricing Component
 
-- Live website -(https://app.netlify.com/sites/cpwd-interactive-pricing-component/settings/general)
+- Live website -(https://cpwd-interactive-pricing-component.netlify.app/)
 
 ## Table of contents
 
